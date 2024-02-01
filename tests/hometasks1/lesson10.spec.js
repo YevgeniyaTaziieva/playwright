@@ -4,13 +4,13 @@ const loginData = [
     {
         email: "studigradilyagmail.com",
         pass: "1w24r231jr",
-        result: " Invalid email address ",
+        result: "Invalid email address",
         locator: "li.validation-messages__item.ng-star-inserted"
     },
     {
         email: "studigradilya@gmail.com",
         pass: "1w24r231jr",
-        result: " Incorrect email or password ",
+        result: "Incorrect email or password",
         locator: "p.page-login__actions-validation.ng-star-inserted"
     },
 ];
@@ -27,7 +27,7 @@ async function runTest(data) {
     await page.waitForSelector(data.locator);
 
     const validationMessage = await page.textContent(data.locator);
-    console.log(`Result for ${data.email}: ${validationMessage == data.result ? 'Pass' : 'Fail'}`);
+    console.log(`Result for ${data.email}: ${validationMessage.trim() === data.result ? 'Pass' : 'Fail'}`);
 
     await browser.close();
 }
