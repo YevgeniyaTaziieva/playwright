@@ -1,4 +1,5 @@
-const { chromium } = require('playwright');
+import { chromium } from "@playwright/test";
+import { loginPage } from './login_page';
 
 const loginData = [
     {
